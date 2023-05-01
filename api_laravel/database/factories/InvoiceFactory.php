@@ -2,23 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Invoices;
 use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\invoices>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
  */
-class InvoicesFactory extends Factory
+class InvoiceFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-
-    //  protected $model = Invoices::class;
-
     public function definition(): array
     {
         $status = $this->faker->randomElement(['B', 'P', 'V']);

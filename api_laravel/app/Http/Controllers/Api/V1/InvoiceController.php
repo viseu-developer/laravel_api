@@ -1,21 +1,26 @@
 <?php
 
+// namespace App\Http\Controllers;
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Invoices;
-use App\Http\Requests\StoreInvoicesRequest;
-use App\Http\Requests\UpdateInvoicesRequest;
+
+use App\Models\Invoice;
+use App\Http\Requests\StoreInvoiceRequest;
+use App\Http\Requests\UpdateInvoiceRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\InvoiceResource;
+use App\Http\Resources\V1\InvoiceCollection;
 
 
-class InvoicesController extends Controller
+class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return new InvoiceCollection(Invoice::paginate());
+
     }
 
     /**
@@ -29,7 +34,7 @@ class InvoicesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreInvoicesRequest $request)
+    public function store(StoreInvoiceRequest $request)
     {
         //
     }
@@ -37,15 +42,15 @@ class InvoicesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Invoices $Invoices)
+    public function show(Invoice $invoice)
     {
-        //
+        return new InvoiceResource($invoice);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Invoices $Invoices)
+    public function edit(Invoice $invoice)
     {
         //
     }
@@ -53,7 +58,7 @@ class InvoicesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateInvoicesRequest $request, Invoices $Invoices)
+    public function update(UpdateInvoiceRequest $request, Invoice $invoice)
     {
         //
     }
@@ -61,7 +66,7 @@ class InvoicesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Invoices $Invoices)
+    public function destroy(Invoice $invoice)
     {
         //
     }

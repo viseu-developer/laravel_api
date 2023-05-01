@@ -15,15 +15,13 @@ class CustomerFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    // protected $model = Customer::class;
-
     public function definition(): array
     {
+
         $type = $this->faker->randomElement(['I', 'B']);
         $name = $type == 'I' ? $this->faker->name() : $this->faker->company();
 
         return [
-            
             'name'         => $name,
             'type'         => $type,
             'email'        => $this->faker->email(),
